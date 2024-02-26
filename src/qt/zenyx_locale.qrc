@@ -1,0 +1,25 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="ar">locale/zenyx_ar.qm</file>
+        <file alias="bg">locale/zenyx_bg.qm</file>
+        <file alias="de">locale/zenyx_de.qm</file>
+        <file alias="en">locale/zenyx_en.qm</file>
+        <file alias="es">locale/zenyx_es.qm</file>
+        <file alias="fi">locale/zenyx_fi.qm</file>
+        <file alias="fr">locale/zenyx_fr.qm</file>
+        <file alias="it">locale/zenyx_it.qm</file>
+        <file alias="ja">locale/zenyx_ja.qm</file>
+        <file alias="ko">locale/zenyx_ko.qm</file>
+        <file alias="nl">locale/zenyx_nl.qm</file>
+        <file alias="pl">locale/zenyx_pl.qm</file>
+        <file alias="pt">locale/zenyx_pt.qm</file>
+        <file alias="ro">locale/zenyx_ro.qm</file>
+        <file alias="ru">locale/zenyx_ru.qm</file>
+        <file alias="sk">locale/zenyx_sk.qm</file>
+        <file alias="th">locale/zenyx_th.qm</file>
+        <file alias="tr">locale/zenyx_tr.qm</file>
+        <file alias="vi">locale/zenyx_vi.qm</file>
+        <file alias="zh_CN">locale/zenyx_zh_CN.qm</file>
+        <file alias="zh_TW">locale/zenyx_zh_TW.qm</file>
+    </qresource>
+</RCC>

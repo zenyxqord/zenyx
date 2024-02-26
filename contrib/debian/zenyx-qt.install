@@ -1,0 +1,6 @@
+usr/local/bin/zenyx-qt usr/bin
+share/pixmaps/zenyx32.xpm usr/share/pixmaps
+share/pixmaps/zenyx16.xpm usr/share/pixmaps
+share/pixmaps/zenyx128.png usr/share/pixmaps
+debian/zenyx-qt.desktop usr/share/applications
+debian/zenyx-qt.protocol usr/share/kde4/services/

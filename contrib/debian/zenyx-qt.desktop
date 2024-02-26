@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Zenyx Core
+Comment=Zenyx P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Zenyx peer-to-peer Netzwerk
+Comment[fr]=Zenyx, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Zenyx, eşten eşe kriptografik sanal para birimi
+Exec=zenyx-qt %u
+Terminal=false
+Type=Application
+Icon=zenyx128
+MimeType=x-scheme-handler/zenyx;
+Categories=Office;Finance;
+StartupWMClass=Zenyx-qt
