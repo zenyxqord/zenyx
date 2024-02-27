@@ -498,7 +498,6 @@ libzenyx_consensus_a_SOURCES = \
   consensus/merkle.h \
   consensus/params.h \
   consensus/validation.h \
-  founderpayment.h \
   hash.cpp \
   hash.h \
   prevector.h \
@@ -537,7 +536,6 @@ libzenyx_common_a_SOURCES = \
   compressor.cpp \
   core_read.cpp \
   core_write.cpp \
-  founderpayment.cpp \
   hdchain.cpp \
   key.cpp \
   key_io.cpp \

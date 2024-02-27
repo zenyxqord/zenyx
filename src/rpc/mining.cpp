@@ -672,21 +672,6 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     result.pushKV("previousbits", strprintf("%08x", pblocktemplate->nPrevBits));
     result.pushKV("height", (int64_t)(pindexPrev->nHeight+1));
 
-    UniValue founderObj(UniValue::VOBJ);
-    FounderPayment founderPayment = Params().GetConsensus().nFounderPayment;
-	if(pblock->txoutFounder!= CTxOut()) {
-		CTxDestination address;
-		ExtractDestination(pblock->txoutFounder.scriptPubKey, address);
-		string addressString = EncodeDestination(address);
-		founderObj.push_back(Pair("payee", addressString.c_str()));
-		founderObj.push_back(Pair("script", HexStr(pblock->txoutFounder.scriptPubKey.begin(), pblock->txoutFounder.scriptPubKey.end())));
-		founderObj.push_back(Pair("amount", pblock->txoutFounder.nValue));
-        
-	}
-	result.push_back(Pair("founder", founderObj));
-    result.push_back(Pair("founder_payments_started", pindexPrev->nHeight + 1 > founderPayment.getStartBlock()));
-	
-    
     UniValue masternodeObj(UniValue::VARR);
     for (const auto& txout : pblocktemplate->voutMasternodePayments) {
         CTxDestination dest;

@@ -3762,7 +3762,7 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
     if (block.vtx.empty() || block.vtx.size() > nMaxBlockSize || ::GetSerializeSize(block, SER_NETWORK, PROTOCOL_VERSION) > nMaxBlockSize)
         return state.DoS(100, false, REJECT_INVALID, "bad-blk-length", false, "size limits failed");
 
-    // Check that all transactions are finalized and not bajol over-sized
+    // Check that all transactions are finalized and not over-sized
     // Also count sigops
     unsigned int nSigOps = 0;
     for (const auto& tx : block.vtx) {
@@ -3775,22 +3775,6 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
         nSigOps += GetLegacySigOpCount(*tx);
         
     }
-    // FounderPayment founderPayment = Params().GetConsensus().nFounderPayment;
-    // if (nHeight > founderPayment.getStartBlock()) {
-
-    //     CScript devPayoutScript = GetScriptForDestination(DecodeDestination(consensusParams.DevelopmentFundAddress));
-    //     CAmount devPayoutValue;
-    //     devPayoutValue = (GetBlockSubsidy(0, nHeight, consensusParams) * consensusParams.DevelopementFundShare) / 100;
-    //     bool found = false;
-    //     for (const CTxOut& txout : block.vtx[0]->vout) {
-            
-    //         if ((found = txout.scriptPubKey == devPayoutScript && txout.nValue == devPayoutValue) == true)
-    //             break;
-    //     }
-    //     if (!found)
-    //         return state.Invalid(false, state.GetRejectCode(), state.GetRejectReason(), "Developer reward check failed");
-
-    // }
 
     // Check sigops
     if (nSigOps > MaxBlockSigOps(fDIP0001Active_context))

@@ -199,7 +199,7 @@ ReadStatus PartiallyDownloadedBlock::FillBlock(CBlock& block, const std::vector<
         return READ_STATUS_INVALID;
 
     CValidationState state;
-    int height = chainActive.Height(); //current height or previous height? error of it is prevHeight bajol
+    
     if (!CheckBlock(block, state, Params().GetConsensus(), height)) {
         // TODO: We really want to just check merkle tree manually here,
         // but that is expensive, and CheckBlock caches a block's

@@ -9,7 +9,7 @@
 #include <uint256.h>
 #include <map>
 #include <string>
-#include "founderpayment.h"
+
 
 namespace Consensus {
 
@@ -174,10 +174,10 @@ struct Params {
      * Examples: 1916 for 95%, 1512 for testchains.
      */
     uint32_t nRuleChangeActivationThreshold;
-    /** P2PKH or P2SH address for developer funds */
-    std::string DevelopmentFundAddress;  
-    /** percentage of block subsidy going to developer fund */
-    int DevelopementFundShare;    
+    // /** P2PKH or P2SH address for developer funds */
+    // std::string DevelopmentFundAddress;  
+    // /** percentage of block subsidy going to developer fund */
+    // int DevelopementFundShare;    
     // Default BIP9Deployment::nWindowSize value for deployments where it's not specified and for unknown deployments.
     uint32_t nMinerConfirmationWindow;
     BIP9Deployment vDeployments[MAX_VERSION_BITS_DEPLOYMENTS];
@@ -204,7 +204,7 @@ struct Params {
     LLMQType llmqTypeInstantSend{LLMQ_NONE};
     LLMQType llmqTypePlatform{LLMQ_NONE};
 
-    FounderPayment nFounderPayment;   
+
 };
 } // namespace Consensus
 

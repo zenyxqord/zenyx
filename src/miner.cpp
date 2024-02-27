@@ -76,19 +76,6 @@ BlockAssembler::BlockAssembler(const CChainParams& params, const Options& option
     nBlockMaxSize = std::max((unsigned int)1000, std::min((unsigned int)(MaxBlockSize(fDIP0001ActiveAtTip) - 1000), (unsigned int)options.nBlockMaxSize));
 }
 
-void BlockAssembler::FillFoundersReward(CMutableTransaction& coinbaseTx, int nHeight)
-{
-    const auto& params = chainparams.GetConsensus();
-    
-    CScript devPayoutScript = GetScriptForDestination(DecodeDestination(params.DevelopmentFundAddress));
-    CAmount devPayoutValue = (GetBlockSubsidy(0, nHeight, params) * params.DevelopementFundShare) / 100;
-    FounderPayment founderPayment = Params().GetConsensus().nFounderPayment;
-    if (nHeight > founderPayment.getStartBlock()) {
-        coinbaseTx.vout[0].nValue -= devPayoutValue;
-        coinbaseTx.vout.push_back(CTxOut(devPayoutValue, devPayoutScript));
-    }
-
-}
 static BlockAssembler::Options DefaultOptions(const CChainParams& params)
 {
     // Block resource limits
@@ -197,8 +184,8 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     // Compute regular coinbase transaction.
     coinbaseTx.vout[0].nValue = blockReward;
     
-    if (nHeight > 1)
-        FillFoundersReward(coinbaseTx, nHeight);
+    // if (nHeight > 1) NYAMBEK 
+    //     FillFoundersReward(coinbaseTx, nHeight);
 
     if (!fDIP0003Active_context) {
         coinbaseTx.vin[0].scriptSig = CScript() << nHeight << OP_0;
@@ -231,10 +218,8 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
         SetTxPayload(coinbaseTx, cbTx);
     }
 
-    FounderPayment founderPayment = chainparams.GetConsensus().nFounderPayment;
-    founderPayment.FillFounderPayment(coinbaseTx, nHeight, blockReward, pblock->txoutFounder);
 
-    // Update coinbase transaction with additional info about masternode and governance bajol payments,
+    // Update coinbase transaction with additional info about masternode and governance payments,
     // get some info back to pass to getblocktemplate
     FillBlockPayments(coinbaseTx, nHeight, blockReward, pblocktemplate->voutMasternodePayments, pblocktemplate->voutSuperblockPayments);
 
