@@ -676,12 +676,13 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     for (const auto& txout : pblocktemplate->voutMasternodePayments) {
         CTxDestination dest;
         ExtractDestination(txout.scriptPubKey, dest);
-
+		if (pindexPrev->nHeight+1 > 2880) {
         UniValue obj(UniValue::VOBJ);
         obj.pushKV("payee", EncodeDestination(dest).c_str());
         obj.pushKV("script", HexStr(txout.scriptPubKey));
         obj.pushKV("amount", txout.nValue);
         masternodeObj.push_back(obj);
+		}
     }
 
     result.pushKV("masternode", masternodeObj);

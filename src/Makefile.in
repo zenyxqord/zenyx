@@ -462,7 +462,6 @@ am_libzenyx_common_a_OBJECTS = libzenyx_common_a-base58.$(OBJEXT) \
 	libzenyx_common_a-compressor.$(OBJEXT) \
 	libzenyx_common_a-core_read.$(OBJEXT) \
 	libzenyx_common_a-core_write.$(OBJEXT) \
-	libzenyx_common_a-founderpayment.$(OBJEXT) \
 	libzenyx_common_a-hdchain.$(OBJEXT) \
 	libzenyx_common_a-key.$(OBJEXT) \
 	libzenyx_common_a-key_io.$(OBJEXT) \
@@ -1009,11 +1008,10 @@ am__libzenyxconsensus_la_SOURCES_DIST = support/cleanse.cpp \
 	crypto/sph_shavite.h crypto/sph_simd.h crypto/sph_skein.h \
 	crypto/sph_types.h amount.h arith_uint256.cpp arith_uint256.h \
 	bls/bls.cpp bls/bls.h consensus/merkle.cpp consensus/merkle.h \
-	consensus/params.h consensus/validation.h founderpayment.h \
-	hash.cpp hash.h prevector.h primitives/block.cpp \
-	primitives/block.h primitives/transaction.cpp \
-	primitives/transaction.h pubkey.cpp pubkey.h \
-	script/zenyxconsensus.cpp script/interpreter.cpp \
+	consensus/params.h consensus/validation.h hash.cpp hash.h \
+	prevector.h primitives/block.cpp primitives/block.h \
+	primitives/transaction.cpp primitives/transaction.h pubkey.cpp \
+	pubkey.h script/zenyxconsensus.cpp script/interpreter.cpp \
 	script/interpreter.h script/script.cpp script/script.h \
 	script/script_error.cpp script/script_error.h serialize.h \
 	span.h streams.h tinyformat.h uint256.cpp uint256.h \
@@ -1474,7 +1472,6 @@ am__depfiles_remade = ./$(DEPDIR)/libzenyx_common_a-base58.Po \
 	./$(DEPDIR)/libzenyx_common_a-compressor.Po \
 	./$(DEPDIR)/libzenyx_common_a-core_read.Po \
 	./$(DEPDIR)/libzenyx_common_a-core_write.Po \
-	./$(DEPDIR)/libzenyx_common_a-founderpayment.Po \
 	./$(DEPDIR)/libzenyx_common_a-hdchain.Po \
 	./$(DEPDIR)/libzenyx_common_a-key.Po \
 	./$(DEPDIR)/libzenyx_common_a-key_io.Po \
@@ -2973,7 +2970,6 @@ libzenyx_consensus_a_SOURCES = \
   consensus/merkle.h \
   consensus/params.h \
   consensus/validation.h \
-  founderpayment.h \
   hash.cpp \
   hash.h \
   prevector.h \
@@ -3013,7 +3009,6 @@ libzenyx_common_a_SOURCES = \
   compressor.cpp \
   core_read.cpp \
   core_write.cpp \
-  founderpayment.cpp \
   hdchain.cpp \
   key.cpp \
   key_io.cpp \
@@ -5201,7 +5196,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-compressor.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-core_read.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-core_write.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-founderpayment.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-hdchain.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-key.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libzenyx_common_a-key_io.Po@am__quote@ # am--include-marker
@@ -6923,20 +6917,6 @@ libzenyx_common_a-core_write.obj: core_write.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='core_write.cpp' object='libzenyx_common_a-core_write.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libzenyx_common_a-core_write.obj `if test -f 'core_write.cpp'; then $(CYGPATH_W) 'core_write.cpp'; else $(CYGPATH_W) '$(srcdir)/core_write.cpp'; fi`
-
-libzenyx_common_a-founderpayment.o: founderpayment.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -MT libzenyx_common_a-founderpayment.o -MD -MP -MF $(DEPDIR)/libzenyx_common_a-founderpayment.Tpo -c -o libzenyx_common_a-founderpayment.o `test -f 'founderpayment.cpp' || echo '$(srcdir)/'`founderpayment.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libzenyx_common_a-founderpayment.Tpo $(DEPDIR)/libzenyx_common_a-founderpayment.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='founderpayment.cpp' object='libzenyx_common_a-founderpayment.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libzenyx_common_a-founderpayment.o `test -f 'founderpayment.cpp' || echo '$(srcdir)/'`founderpayment.cpp
-
-libzenyx_common_a-founderpayment.obj: founderpayment.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -MT libzenyx_common_a-founderpayment.obj -MD -MP -MF $(DEPDIR)/libzenyx_common_a-founderpayment.Tpo -c -o libzenyx_common_a-founderpayment.obj `if test -f 'founderpayment.cpp'; then $(CYGPATH_W) 'founderpayment.cpp'; else $(CYGPATH_W) '$(srcdir)/founderpayment.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libzenyx_common_a-founderpayment.Tpo $(DEPDIR)/libzenyx_common_a-founderpayment.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='founderpayment.cpp' object='libzenyx_common_a-founderpayment.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libzenyx_common_a-founderpayment.obj `if test -f 'founderpayment.cpp'; then $(CYGPATH_W) 'founderpayment.cpp'; else $(CYGPATH_W) '$(srcdir)/founderpayment.cpp'; fi`
 
 libzenyx_common_a-hdchain.o: hdchain.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libzenyx_common_a_CPPFLAGS) $(CPPFLAGS) $(libzenyx_common_a_CXXFLAGS) $(CXXFLAGS) -MT libzenyx_common_a-hdchain.o -MD -MP -MF $(DEPDIR)/libzenyx_common_a-hdchain.Tpo -c -o libzenyx_common_a-hdchain.o `test -f 'hdchain.cpp' || echo '$(srcdir)/'`hdchain.cpp
@@ -13014,7 +12994,6 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-compressor.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-core_read.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-core_write.Po
-	-rm -f ./$(DEPDIR)/libzenyx_common_a-founderpayment.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-hdchain.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-key.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-key_io.Po
@@ -13559,7 +13538,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-compressor.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-core_read.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-core_write.Po
-	-rm -f ./$(DEPDIR)/libzenyx_common_a-founderpayment.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-hdchain.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-key.Po
 	-rm -f ./$(DEPDIR)/libzenyx_common_a-key_io.Po

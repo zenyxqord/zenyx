@@ -473,12 +473,15 @@ public:
         fBIP9CheckMasternodesUpgraded = true;
 
         checkpointData = {
-
+            {
+                {0, uint256S("0x000007686397b2cf2b33d6ff0d0278adf37a94b1ecfe317ddaf95ae08532f0e0")},
+                {2267, uint256S("0x0000000000000078cc993dc9fb14ff2c6ec67129dee77aa466098aa90f2cbcbd")},
+            }
         };
 
         chainTxData = ChainTxData{
             1704830162, // * UNIX timestamp of last known number of transactions (Block 2900)
-            0,   // * total number of transactions between genesis and that timestamp
+            2267,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0.0         // * estimated number of transactions per second after that timestamp
         };
